@@ -37,11 +37,8 @@ class NbaLiveController {
         model["videoPlayer"] = nbaLiveService.getLiveVideoPlayer(vs)
         return "nba_video_player"
     }
-
-    /** 获取访问信息 **/
-    @GetMapping("/request/log")
-    fun getRequestLog(model: Model,@RequestParam("offset") offset:Int, @RequestParam("size") size:Int): String{
-        model["data"] = nbaLiveService.getRequestLog(offset, size)
-        return "request_log"
-    }
+    
+    // <editor-fold> ====================================  =====================================================
+    
+    // </editor-fold> ==================================================================================================
 }

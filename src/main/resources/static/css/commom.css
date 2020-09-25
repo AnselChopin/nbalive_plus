@@ -25,6 +25,15 @@ p{
 .Time, .Title{
     margin-top: 5px;
 }
+.color_1E9FFF{
+    color: #1E9FFF;
+}
+.color_white{
+    color: white;
+}
+.text_align_center{
+    text-align: center;
+}
 
 /* ----------------------------------------- 跑马灯效果 ------------------------------------------*/
 .marquee {

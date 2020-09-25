@@ -27,10 +27,10 @@ import java.lang.Exception
 class NbaLiveService {
     @Autowired
     private lateinit var videoSourceRepository: VideoSourceRepository
+
     @Autowired
     private lateinit var globalCache: GlobalCache
-    @Autowired
-    private lateinit var liveRequestReporitory: LiveRequestReporitory
+
     @Autowired
     private lateinit var systemNoticeRepository: SystemNoticeRepository
 
@@ -101,13 +101,6 @@ class NbaLiveService {
         return result
     }
 
-    /** 获取访问信息 **/
-    fun getRequestLog(offset: Int, size: Int): JSONObject {
-        val list = liveRequestReporitory.getAll(offset, size)
-        val count = liveRequestReporitory.all.size
-        return HttpResult.success("$count", list)
-    }
-
     /** 获取最新系统通知 **/
     fun getNewestSystemNotice(): SystemNotice = systemNoticeRepository.newestNotice
 
@@ -126,5 +119,4 @@ class NbaLiveService {
         }
     }
     // </editor-fold> ==================================================================================================
-
 }
