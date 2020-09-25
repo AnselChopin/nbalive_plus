@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>【黑黑篮球】</title>
+    <link rel="stylesheet" href="/live/css/commom.css">
+</head>
+<body style="background: #393D49">
+<div style="line-height: 20px;width: 100%">
+    <h4 style="margin-left: 15px;color:#FFB800;">若长时间无响应，尝试刷新页面或切换信号源</h4>
+    <p style="margin-left: 15px;color: #01AAED">有问题或建议请联系微信：15183787353</p>
+    <p style="background: #ccc;height: 1px;margin-right: 5%;"></p>
+</div>
+
+<div class="dplayer" style="width: 96%; height: 60%;">
+    <iframe scrolling="none" frameborder="0" th:src="${videoPlayer}" width="100%" height="100%" style="width:100%;height:100%;"></iframe>
+</div>
+</body>
+
+</body>
+</html>

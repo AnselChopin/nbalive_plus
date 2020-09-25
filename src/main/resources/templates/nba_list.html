@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>【黑黑篮球】</title>
+    <link rel="stylesheet" href="/live/css/commom.css">
+    <!--使用mobile-detect.js获取手机型号和系统-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
+    <script src="/live/js/jquery-3.4.1.js"></script>
+    <script src="/live/js/url.js"></script>
+    <script src="/live/js/utils.js"></script>
+    <script src="/live/js/upload_log.js"></script>
+    <style>
+        a{
+            margin-left: 10px;
+            margin-top: 5px;
+            display: block;
+        }
+        img{
+            width: 18px;
+            height: 20px;
+        }
+        tr{
+            color: white;
+        }
+    </style>
+</head>
+<body style="background: #393D49">
+<div style="line-height: 20px;">
+    <h3 style="color: #FF5722;">【请注意直播时间】</h3>
+    <h4 style="margin-left: 15px;color:#FFB800;">若长时间无响应，尝试刷新页面或切换信号源</h4>
+    <p style="margin-left: 15px;color: #01AAED">有问题或建议请联系微信：15183787353</p>
+</div>
+<p style="background: #ccc;height: 1px;margin-right: 5%;"></p>
+<div id="div_test" th:utext="${liveList}"></div>
+<div style="width: 100%;height: 40px;"></div>
+</body>
+</html>

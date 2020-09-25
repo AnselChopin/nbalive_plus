@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_test?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: 520812qq
+  #    tomcat:
+  #      validation-query: SELECT 1    #验证使用的SQL语句
+  #      test-on-borrow: false         #借出连接时不要测试，否则很影响性能
+  #      test-while-idle: true         #指明连接是否被空闲连接回收器(如果有)进行检验.如果检测失败,则连接将被从池中去除.
+  #      time-between-eviction-runs-millis: 4000  #每30秒运行一次空闲连接回收器
+  #      min-evictable-idle-time-millis: 1800000   #池中的连接空闲30分钟后被回收
+  #      num-tests-per-eviction-run: 10
+
+  jpa:
+    database: mysql
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+  #      naming:
+  #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl   #不转换驼峰
+
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
+
+  thymeleaf:
+    cache: false
+
+# 自定义配置
+my-config:
+  enable-http-aop: true
+  server-url: http://127.0.0.1:19898/live/

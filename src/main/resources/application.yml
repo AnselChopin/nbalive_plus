@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /live
+  port: 19898
+
+spring:
+  profiles:
+#    active: dev
+    active: prod
+
+
+
+
+

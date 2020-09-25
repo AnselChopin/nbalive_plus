@@ -1,0 +1,73 @@
+/* ----------------------------------------- 标签 ------------------------------------------*/
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* body 背景自适应 */
+/*body{*/
+    /*background: url("https://c-ssl.duitang.com/uploads/item/201611/04/20161104110413_XzVAk.gif") no-repeat;*/
+    /*background-size: 100%;*/
+/*}*/
+
+p{
+    color: deepskyblue;
+}
+
+/* ----------------------------------------- 自定义 ------------------------------------------*/
+.bg_393D49{
+    background: #393D49;
+}
+.s1, .s2{
+    color: #FFB800;
+}
+.Time, .Title{
+    margin-top: 5px;
+}
+
+/* ----------------------------------------- 跑马灯效果 ------------------------------------------*/
+.marquee {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* 使段落文字滚动 */
+@keyframes marquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}
+
+/* 滚动文字前加图片 */
+.microsoft {
+    padding-left: 1.5em;
+    position: relative;
+    font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.microsoft:before{
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: -1em; left: -1em;
+    width: .5em; height: .5em;
+}
+
+/*给通知前面加图片*/
+/*.microsoft:after, .microsoft::after {*/
+/*z-index: 1;*/
+/*content: '';*/
+/*position: absolute;*/
+/*top: -4px; left: 0;*/
+/*width: 2em; height: 2em;background-color:white;*/
+/*background-size: 100%;*/
+/*background-image:url(/live/images/lotv.gif);*/
+/*}*/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>userinfo</title>
+    <style>
+        span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- 自定义变量来解决大量的前缀 -->
+<div th:object="${result.data}">
+    <span th:text="*{id}">id</span>
+    <span th:text="*{userName}">userName</span>
+    <span th:text="*{age}">age</span>
+    <span th:text="${#dates.format(result.time,'yyyy-MM-dd hh:mm:ss')}">time</span>
+</div>
+
+<!-- 字面值 -->
+<div>
+    <span th:text="'thymleaf'">123456</span>
+    <span th:text="100+99">0</span>
+    <span th:if="true">true</span>
+    <span th:if="false">false</span>
+</div>
+
+<!-- 方法拼接 -->
+<div data-th-object="${result.data}">
+    <span th:text="'id: ' + *{id}">id</span>
+    <span th:text="|userName: *{userName}|">userName</span>
+    <span th:text="|age: *{age}|">age</span>
+    <span th:text="|time: ${#dates.format(result.time,'yyyy-MM-dd hh:mm:ss')}|">time</span>
+</div>
+
+<!-- 运算 -->
+<div data-th-object="${result.data}">
+    <span data-th-text="*{age} % 2">age % 2</span>
+    <span data-th-if="*{age} gt 20">age > 20</span>
+    <span data-th-if="*{age} gt 50">age > 50</span>
+    <span data-th-text="*{age} gt 18 ? 'adult' : 'young'">adult or young</span>
+    <span data-th-text="*{userName} ?: 'userName is null'">userName</span>
+</div>
+
+<!-- 遍历 -->
+<div>
+    <p>简单遍历</p>
+    <table border="2px">
+        <tr>
+            <th>id</th>
+            <th>userName</th>
+            <th>age</th>
+        </tr>
+        <tr data-th-each="user : ${users}">
+            <td data-th-text="${user.id}">id</td>
+            <td data-th-text="${user.userName}">userName</td>
+            <td data-th-text="${user.age}">age</td>
+        </tr>
+    </table>
+
+    <p>遍历同时获取对象状态</p>
+    <table border="2px">
+        <tr>
+            <th>no</th>
+            <th>id</th>
+            <th>userName</th>
+            <th>age</th>
+        </tr>
+        <tr data-th-each="user,myState : ${users}">
+            <td data-th-text="${myState.index}">no</td>
+            <td data-th-text="${user.id}">id</td>
+            <td data-th-text="${user.userName}">userName</td>
+            <td data-th-text="${user.age}">age</td>
+        </tr>
+    </table>
+</div>
+
+<!-- 分支控制switch -->
+<div th:switch="${result.data.userName}">
+    <span th:case="'Jack1'">Jack1</span>
+    <span th:case="'Jack2'">Jack2</span>
+    <span th:case="'Jack3'">Jack3</span>
+    <span th:case="*">userName unknown</span>
+</div>
+
+<!-- 链接表达式@{} -->
+<div>
+    <!-- 绝对地址 -->
+    <a th:href="@{http://www.baidu.com}">baidu.com</a>
+    <!-- 相对地址 相对的是项目根路径-->
+    <img th:src="@{/img/404.jpg}" style="width: 200px;height: 160px">
+</div>
+
+<div>
+    <span th:text="@{/test/time}">time</span>
+</div>
+
+<!-- JS模板 -->
+<script th:inline="javascript">
+    var userName = /*[[${result.data.userName}]]*/ "userName";
+    var age = /*[[${result.data.age}]]*/ 20;
+    console.log(userName);
+    console.log(age)
+</script>
+</body>
+</html>

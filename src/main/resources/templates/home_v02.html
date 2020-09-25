@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>【黑黑篮球】</title>
+    <link rel="stylesheet" href="/live/css/commom.css">
+    <link rel="stylesheet" href="/live/layui/css/layui.css">
+    <script src="/live/js/jquery-3.4.1.js"></script>
+    <script src="/live/layui/layui.js"></script>
+    <script src="/live/js/url.js"></script>
+    <script src="/live/js/utils.js"></script>
+    <style>
+        .pTitle{
+            color: #01AAED;
+            font-size: 26px;
+        }
+        a{
+            color: #FFB800;
+            text-decoration:none;
+            display: block;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body style="background: #393D49">
+<div th:object="${systemNotice}">
+    <p th:if="*{state == 1}" th:text="|通知：*{content}|" class="microsoft marquee" style="color: #FF5722">系统通知</p>
+</div>
+<div>
+    <p class="pTitle"><img src="/live/images/NBALogo.jpg" style="width: 15px;height: 20px;margin-right: 6px;">NBA赛事直播</p>
+    <div id="divList" style="margin-top: 10px;" th:each="video,myState : ${nbaVideoList}">
+        <a th:href="${video.videoHtml}" th:text="|高清无码线路 ${myState.index + 1}|"></a>
+    </div>
+</div>
+<!--弹出通知-->
+<script th:inline="javascript">
+    var notice = /*[[${systemNotice.content}]]*/ "";
+    var state = /*[[${systemNotice.state}]]*/ "";
+    if(state == 1){
+        layui.use(['layer'], function(){
+            var layer = layui.layer;
+
+            layer.open({
+                title: '系统通知'
+                ,content: notice
+                ,anim: 2
+                ,skin: 'layui-layer-lan'
+            });
+        });
+    }
+
+
+</script>
+</body>
+</html>
